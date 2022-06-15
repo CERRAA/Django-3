@@ -1,0 +1,80 @@
+{% extends 'awwards/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container container-fluid">
+        <div class="card">
+            <img class="card-img-top" src="{{ project.image.url}}" alt="Card image cap">
+            <div class="card-title">
+                <h2 class="text-center">{{project.title}}</h2>
+            </div>
+            <div class="card-body">
+                <p class="text-center">{{project.article}}</p>
+
+                <hr class="dotted" style="  border-top: 3px dotted rgb(0, 0, 0);">
+                    <div class="ratings">
+                        <p class="text-center">{{project.title}}</p>
+                    </div>
+                <hr class="rounded" style="  border-top: 8px solid rgb(0, 0, 0);
+                border-radius: 5px;">
+                <div class="row">
+                    <div class="col-md-5">
+                        <!-- empty -->
+                    </div>
+                    <div class="col-md-6">
+                    <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-info btn-lg px-2" data-toggle="modal" data-target="#exampleModal">
+                            Rate this project
+                        </button>
+                    </div>
+                    <div class="col-md-2">
+                        <!-- empty -->
+                    </div>
+                </div>
+
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <fieldset class="form-group">
+                                        <!-- <legend class="text-center border-bottom">Sign Up Here</legend> -->
+                                        <h4 class="text-center border-bottom">Rate Project</h4>
+                                        {{ form|crispy }}
+                                    </fieldset>
+                                    <div class="form-group">
+                                        
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <!-- empty -->
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button type="button" class="btn btn-outline-info btn-lg px-2" style="width: 100%;">Rate</button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <!-- empty -->
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="card-footer">
+                <small><span>Posted on:{{ project.pub_date }}</span></small>
+            </div>
+        </div>
+    </div>
+{% endblock %}
