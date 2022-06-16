@@ -11,7 +11,6 @@ This is a replica of the awwwards application . The clone is developed by Django
 + [Behaviour Driven Development](#behavior-driven-development)
 + [Authors Info](#author)
 
-
 ## Features
 
 - Django 4.0+
