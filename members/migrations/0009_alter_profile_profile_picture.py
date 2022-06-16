@@ -11,7 +11,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        
         migrations.AlterField(
             model_name='profile',
             name='profile_picture',
