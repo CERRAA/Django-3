@@ -10,9 +10,7 @@ This is a replica of the awwwards application . The clone is developed by Django
 + [Technology Used](#technologies-used)
 + [Behaviour Driven Development](#behavior-driven-development)
 + [Authors Info](#author)
-## App screenshot
-![Awward-clone](/static/assets/awward_clone.png)
-![Awward-clone](/static/assets/profile_api.png)
+
 ## Features
 
 - Django 4.0+
