@@ -74,4 +74,5 @@ CLOUDINARY_API_SECRET=CLOUDINARY_SECRET
 ****
 ## Author
 
+
 * Design and developed by: [Angie Cerra](https://github.com/CERRAA)
