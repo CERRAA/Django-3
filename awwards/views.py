@@ -22,7 +22,6 @@ def publish_project(request):
         form = ProjectSubmissionForm(request.POST, request.FILES)
         if form.is_valid():
             project= Projects()
-            project.user = form.cleaned_data['user']
             project.title = form.cleaned_data['title']
             project.article = form.cleaned_data['article']
             project.link = form.cleaned_data['link']

@@ -6,19 +6,22 @@ class Projects(models.Model):
     '''
     Class that handles project instances
     '''
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='author')
-    title = models.CharField(max_length=50)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='author',null=True)
+    title = models.CharField(max_length=50,null=True)
     article = models.CharField(max_length=500)
     link = models.URLField(max_length=200)
     image = CloudinaryField('images/')
     pub_date = models.DateField(auto_now_add=True)
 
+    def __str__(self):
+        return str(self.id)
+
+
     @classmethod
     def get_project(cls, pk):
         return cls.objects.get(id=pk)
 
-    def __str__(self):
-        return self.title
+ 
 
 
 RATES = [
@@ -45,4 +48,4 @@ class Rating(models.Model):
     score = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, related_name='authorrates')
 
     def __str__(self):
-        return f'{self.project} Ratings'
+        return f'{self.id} Ratings'

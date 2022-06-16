@@ -6,7 +6,7 @@
 ''
 {% endblock %}
 {% block content %}
-<div class=“containerElement”>
+<div class=“containerElement” style="display: grid; place-content:center; height:100vh; background-color:black; color:antiquewhite">
 <div class=“vertical-center”>
       <form action="{% url 'rate_project' id %}" method="POST">
         {% csrf_token %}
@@ -15,7 +15,9 @@
              <span style="display:block; margin-top:4px; font-weight: bolder;"> rate content - {{ form.content }}</span>
              <span style="display:block; margin-top:4px; font-weight: bolder;">rate design - {{ form.design }}</span>
           </div>
-          <button type=“submit” class=“btn btn-secondary”>Rate</i</button>
+          <center>
+          <button type=“submit” class=“btn btn-secondary”>Rate</i</button>]
+          </center>
       </form>
 </div>
 </div>

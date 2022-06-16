@@ -8,7 +8,8 @@ class ProjectSubmissionForm(forms.ModelForm):
     '''
     class Meta:
         model = Projects
-        fields = '__all__'
+        fields = ['title','article','link','image']
+
 
 class UpdateProjectForm(forms.ModelForm):
     '''
