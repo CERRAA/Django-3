@@ -6,4 +6,5 @@ urlpatterns = [
     path('submit/project/', views.publish_project, name='submitproject'),
     path('update/project/', views.update_project, name='updateproject'),
     path('view/project/<int:project_id>', views.view_project, name='singleproject'),
+    path('rate_project/<int:id>',views.rate_project, name='rate_project'),
 ]

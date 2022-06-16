@@ -1,0 +1,22 @@
+{%extends "awwards/base.html"%}
+{% load bootstrap4 %}
+{% load static %}
+{% block styles %}
+{% bootstrap_css %}
+''
+{% endblock %}
+{% block content %}
+<div class=“containerElement”>
+<div class=“vertical-center”>
+      <form action="{% url 'rate_project' id %}" method="POST">
+        {% csrf_token %}
+          <div class=“input-field”>
+             <span style="display:block; margin-top:4px;font-weight: bolder;">rate usability - {{ form.usability }}</span>
+             <span style="display:block; margin-top:4px; font-weight: bolder;"> rate content - {{ form.content }}</span>
+             <span style="display:block; margin-top:4px; font-weight: bolder;">rate design - {{ form.design }}</span>
+          </div>
+          <button type=“submit” class=“btn btn-secondary”>Rate</i</button>
+      </form>
+</div>
+</div>
+{% endblock %}

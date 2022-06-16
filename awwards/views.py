@@ -49,16 +49,38 @@ def view_project(request, project_id):
     View function that render project on one page 
     '''
     project = Projects.objects.get(pk = project_id)
-    form = RateProjectForm()
-    if request.method == 'POST': 
-        rating = Rating()
-        rating.project = form.cleaned_data['project']
-        rating.design = form.cleaned_data['design']
-        rating.usability = form.cleaned_data['usability']
-        rating.score = form.cleaned_data['score']
-        rating.save()
-        messages.success(request, f'Your ratiing has been submitted')
-        return redirect('singleproject')
+    return render(request, 'awwards/singleproject.html',{"project":project})
+
+
+def rate_project(request,id):
+
+    project = Projects.objects.get(id = id)
+
+    user = request.user
+
+    
+    if request.method =='POST':
+        print("inside post")
+        form = RateProjectForm(request.POST)
+        if form.is_valid():
+            rate_design = form.save(commit=False)
+            rate_design.user = user
+            rate_design.project = project
+            # get value for the content
+            # form.data.field
+            # get value usability
+            # get value for design
+            
+            # calculate avarage 
+            # assign the avarage value to score field
+            # rate_design.score = avg
+
+
+            rate_design.save()
+            return redirect('homepage')
     else:
         form = RateProjectForm()
-    return render(request, 'awwards/singleproject.html',{"project":project, "form":form})
+    return render(request, 'awwards/rate_project.html',{"project":project,"form":form,"id":id})
+
+
+    
